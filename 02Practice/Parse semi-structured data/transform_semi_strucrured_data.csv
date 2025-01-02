@@ -1,0 +1,32 @@
+WITH prepared_cte AS (
+                SELECT
+                    json_extract_string(metadata, '$.event_id') AS event_id,  -- String value
+                    CAST(json_extract_string(metadata, '$.event_timestamp') AS TIMESTAMP) AS event_timestamp,  -- Timestamp type
+                    CAST(json_extract(metadata, '$.partition') AS INTEGER) AS partition_,  -- Integer value
+                    CAST(json_extract(metadata, '$.offset') AS BIGINT) AS offset_,  -- BigInt for larger numeric values
+                    json_extract_string(metadata, '$.source') AS source_,  -- String value
+                    CAST(json_extract(raw_data, '$.user.id') AS INTEGER) AS user_id,  -- Integer value
+                    json_extract_string(raw_data, '$.user.name') AS user_name,
+                    json_extract_string(raw_data, '$.user.email') AS user_email,
+                    json_extract_string(raw_data, '$.action') AS action_,  -- Action as string
+                    json_extract_string(raw_data, '$.details.location') AS location,
+                    json_extract_string(raw_data, '$.details.device') AS device,
+                    json_extract_string(raw_data, '$.details.session') AS session_
+                FROM read_csv('path_to_your_dataset/datasets/kafka_messages.csv')
+            )
+
+            SELECT
+                event_id,
+                event_timestamp,
+                partition_,
+                offset_,
+                source_,
+                user_id,
+                user_name,
+                IF(user_email = 'null', NULL, user_email) AS user_email,
+                action_,
+                location,
+                device,
+                IF(session_ IN ('null', '-'), NULL, session_ ) as session
+            FROM prepared_cte
+;
