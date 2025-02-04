@@ -7,7 +7,7 @@
 2. Using [window functions](https://duckdb.org/docs/sql/functions/window_functions.html).
 3. Be able to explain your solution using the correct terminology.
 
-### Additional point:
+### Additional point (1 point):
 Provide [QUALIFY](https://duckdb.org/docs/sql/query_syntax/qualify.html) usage.
 
 ### Additional info:
