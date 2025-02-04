@@ -14,5 +14,5 @@ Provide [QUALIFY](https://duckdb.org/docs/sql/query_syntax/qualify.html) usage.
 - Suggested system for assignment - DuckDB.
 - You can generate datasets using ChatGPT or other AI assistant.
 - You can ingest data into tables using [INSERT INTO syntax](https://duckdb.org/docs/data/insert.html#syntax)
-or use CTAS: [CREATE TABLE AS SELECT](https://duckdb.org/docs/sql/statements/create_table.html) FROM [READ_CSV](https://duckdb.org/docs/data/csv/overview.html).
+or use CTAS: [CREATE TABLE AS SELECT](https://duckdb.org/docs/sql/statements/create_table.html) ... FROM [READ_CSV](https://duckdb.org/docs/data/csv/overview.html).
 
