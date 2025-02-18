@@ -1,0 +1,117 @@
+[
+  {
+    "metadata": {
+      "event_id": "evt_20241016222328",
+      "event_timestamp": "2024-10-16 22:23:28",
+      "partition": 0,
+      "offset": 12345,
+      "source": "source_system"
+    },
+    "raw_data": {
+      "user": {
+        "id": 1,
+        "name": "Alice",
+        "email": null
+      },
+      "action": "login",
+      "details": {
+        "location": "NY",
+        "device": "mobile",
+        "session": null
+      },
+      "events": [1, 2]
+    }
+  },
+  {
+    "metadata": {
+      "event_id": "evt_20241016222329",
+      "event_timestamp": "2024-10-16 22:25:30",
+      "partition": 1,
+      "offset": 12346,
+      "source": "source_system"
+    },
+    "raw_data": {
+      "user": {
+        "id": 2,
+        "name": "Bob",
+        "email": "bob@example.com"
+      },
+      "action": "purchase",
+      "details": {
+        "location": "CA",
+        "device": "desktop",
+        "session": null
+      },
+      "events": [1, 2, 3]
+    }
+  },
+  {
+    "metadata": {
+      "event_id": "evt_20241016222330",
+      "event_timestamp": "2024-10-16 22:27:31",
+      "partition": 0,
+      "offset": 12347,
+      "source": "source_system"
+    },
+    "raw_data": {
+      "user": {
+        "id": 3,
+        "name": "Charlie",
+        "email": "charlie@example.com"
+      },
+      "action": "logout",
+      "details": {
+        "location": "TX",
+        "device": "tablet",
+        "session": "abc123"
+      },
+      "events": [2, 3]
+    }
+  },
+  {
+    "metadata": {
+      "event_id": "evt_20241016222331",
+      "event_timestamp": "2024-10-16 22:30:32",
+      "partition": 1,
+      "offset": 12348,
+      "source": "source_system"
+    },
+    "raw_data": {
+      "user": {
+        "id": 4,
+        "name": "David",
+        "email": "david@example.com"
+      },
+      "action": "view",
+      "details": {
+        "location": "FL",
+        "device": "mobile",
+        "session": "xyz789"
+      },
+      "events": [1, 4]
+    }
+  },
+  {
+    "metadata": {
+      "event_id": "evt_20241016222332",
+      "event_timestamp": "2024-10-16 22:32:33",
+      "partition": 2,
+      "offset": 12349,
+      "source": "source_system"
+    },
+    "raw_data": {
+      "user": {
+        "id": 5,
+        "name": "Eve",
+        "email": null
+      },
+      "action": "purchase",
+      "details": {
+        "location": "NV",
+        "device": "desktop",
+        "session": "def456"
+      },
+      "events": [2, 3, 4]
+    }
+  }
+]
