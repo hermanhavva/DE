@@ -101,7 +101,7 @@ pip install pyspark
 ```
 
 
-## **Installation via Docker*
+## **Installation via Docker**
 
 #### **1. Install Docker**
 Install Docker if it is not installed yet. 
