@@ -38,9 +38,9 @@ SELECT * from assignment2.parsed_data;
 
 SELECT pd.events_arr FROM assignment2.parsed_data pd;
 
-
-
+CREATE TABLE assignment2.parsed_unnested AS 
 SELECT * EXCLUDE(events_arr),  -- somehow the exclude clouse does not support the aliases
   UNNEST(from_json(json(events_arr), '["INTEGER"]')) as event_num
 FROM assignment2.parsed_data pd;
 
+SELECT * FROM assignment2.parsed_unnested;
