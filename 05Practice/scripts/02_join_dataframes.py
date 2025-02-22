@@ -7,13 +7,13 @@ import pandas as pd
 def pandas_merge():
     # Load CSV files
     start = time.time()
-    sales_df = pd.read_csv("../datasets/sales/sales.csv")
-    products_df = pd.read_csv("../datasets/sales/products.csv")
-    employees_df = pd.read_csv("../datasets/sales/employees.csv")
-    customers_df = pd.read_csv("../datasets/sales/customers.csv")
-    countries_df = pd.read_csv("../datasets/sales/countries.csv")
-    cities_df = pd.read_csv("../datasets/sales/cities.csv")
-    categories_df = pd.read_csv("../datasets/sales/categories.csv")
+    sales_df = pd.read_csv("../../datasets_ext/sales/sales.csv")
+    products_df = pd.read_csv("../../datasets_ext/sales/products.csv")
+    employees_df = pd.read_csv("../../datasets_ext/sales/employees.csv")
+    customers_df = pd.read_csv("../../datasets_ext/sales/customers.csv")
+    countries_df = pd.read_csv("../../datasets_ext/sales/countries.csv")
+    cities_df = pd.read_csv("../../datasets_ext/sales/cities.csv")
+    categories_df = pd.read_csv("../../datasets_ext/sales/categories.csv")
 
     # Perform Joins
     # https://pandas.pydata.org/docs/reference/api/pandas.merge.html

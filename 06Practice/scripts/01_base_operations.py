@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Replace '../datasets/sales/sales.csv' with your actual file path
-df = pd.read_csv('../../datasets_ext/sales/sales.csv')
+df = pd.read_csv('../datasets/sales/sales.csv')
 
 # Display the first few rows
 print(df.head())
