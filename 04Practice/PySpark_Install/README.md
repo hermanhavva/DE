@@ -1,6 +1,6 @@
 # Apache Spark 3 & PySpark Installation Guide
 
-This guide provides step-by-step instructions for installing **Apache Spark 3** and **PySpark** on **macOS**.
+This guide provides step-by-step instructions for installing **Apache Spark 3** and **PySpark**, **macOS** and via Docker.
 
 ---
 
@@ -98,4 +98,61 @@ Create new Python project using pyCharm.
 Run in terminal:
 ```sh
 pip install pyspark
+```
+
+
+## **Installation via Docker**
+
+#### **1. Install Docker**
+Install Docker if it is not installed yet. 
+How to install on [MacOS](https://docs.docker.com/desktop/setup/install/mac-install/).
+How to install on [Windows](https://docs.docker.com/desktop/setup/install/windows-install/).
+
+#### **2. Run Docker container**
+```sh
+docker run -it -p 8888:8888 jupyter/pyspark-notebook
+```
+
+#### **3. Open Jupyter**
+Copy URL with token and paste into your browser:
+
+![img_1.png](img_1.png)
+```sh
+http://127.0.0.1:8888/lab?token=<token>
+```
+![img_2.png](img_2.png)
+
+#### **3. Add dataset**
+1. Open new terminal/PowerShell, run docker ps and copy container id:
+
+```sh
+docker ps
+```
+![img_3.png](img_3.png)
+
+2. Open an Interactive Bash Shell. If you want to execute commands inside the container, open a bash session:
+```sh
+docker exec -it <CONTAINER_ID_or_NAME> bash
+```
+You can list your files running:
+```sh
+ls -l
+```
+![img_4.png](img_4.png)
+
+4. Download file to the container:
+```sh
+curl -L -o ~/grocery-sales-dataset.zip  https://www.kaggle.com/api/v1/datasets/download/andrexibiza/grocery-sales-dataset
+```
+5. Unzip zip:
+```sh
+unzip grocery-sales-dataset.zip
+```
+Now dataset is available from the jupyter notebook.
+![img_5.png](img_5.png)
+
+You can also copy file from your local machine.
+Run this command from terminal/PowerShell from your local machine (**_not from container_**):
+```sh
+docker cp <local_file_path> <container_id_or_name>:<destination_path_in_container>
 ```
