@@ -1,0 +1,5 @@
+apache-airflow[crypto]
+dotenv
+plyvel
+paramiko
+apache-airflow-providers-ssh

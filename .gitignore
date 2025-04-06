@@ -121,3 +121,19 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/pycharm+all,windows
 04Assignment/fruits2.csv
 04Assignment/fruits1.csv
+/assignments/05Assignment/certs
+assignments/05Assignment/README.md
+
+# Airflow
+.git
+.env
+.DS_Store
+airflow_settings.yaml
+__pycache__/
+astro
+.venv
+airflow-webserver.pid
+webserver_config.py
+airflow.cfg
+airflow.db
+
