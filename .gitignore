@@ -140,3 +140,4 @@ webserver_config.py
 airflow.cfg
 airflow.db
 
+/assignments/05Assignment/data
