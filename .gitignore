@@ -124,6 +124,9 @@ $RECYCLE.BIN/
 /assignments/05Assignment/certs
 assignments/05Assignment/README.md
 
+# csv folders
+csv
+
 # Airflow
 .git
 .env
