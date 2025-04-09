@@ -17,6 +17,7 @@ services:
     volumes:
       - ./data:/usr/local/airflow/data
       - ./csv:/usr/local/airflow/csv
+      - ./csv_extracted:/usr/local/airflow/csv_extracted
 #      - ./certs:/usr/local/airflow/certs  # Mount the certificate directory
 #      - ./airflow.cfg:/usr/local/airflow/airflow.cfg
 #    ports:
