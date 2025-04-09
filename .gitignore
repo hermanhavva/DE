@@ -141,3 +141,4 @@ airflow.cfg
 airflow.db
 
 /assignments/05Assignment/data
+*.csv
