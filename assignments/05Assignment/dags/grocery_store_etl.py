@@ -31,56 +31,18 @@ MYSQL_CONFIG = {
 mysql_uri = f"mysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
 
-# @dataclass
-# class ExtractedFrames:
-#     def __init__(
-#         self,
-#         products: pl.dataframe,
-#         customers: pl.dataframe,
-#         sales: pl.dataframe,
-#         category: pl.dataframe,
-#         cities: pl.dataframe,
-#         countries: pl.dataframe,
-#         employees: pl.dataframe,
-#     ):
-#
-#         self.products_df = products
-#         self.customers_df = customers
-#         self.sales_df = sales
-#         self.category_df = category
-#         self.cities_df = cities
-#         self.countries_df = countries
-#         self.employees_df = employees
-#         self.total_rows = (
-#             products.height
-#             + customers.height
-#             + sales.height
-#             + category.height
-#             + cities.height
-#             + countries.height
-#             + employees.height
-#         )
-#
-#     products_df: pl.DataFrame
-#     customers_df: pl.DataFrame
-#     sales_df: pl.DataFrame
-#     category_df: pl.DataFrame
-#     cities_df: pl.DataFrame
-#     countries_df: pl.DataFrame
-#     employees_df: pl.DataFrame
-#     total_rows: int
-
-
 @dataclass
 class Path:
     csv_data_path = "/usr/local/airflow/csv/"
     csv_data_extracted_path = "/usr/local/airflow/csv_extracted/"
+    csv_data_processed_path = "/usr/local/airflow/csv_processed/"
+
     product_extracted_path = csv_data_extracted_path + "products.csv"
     customers_extracted_path = csv_data_extracted_path + "customers.csv"
     sales_extracted_path = csv_data_extracted_path + "sales.csv"
 
     categories_path = csv_data_path + "categories.csv"
-    processed_path = csv_data_path + "processed.csv"
+    processed_path = csv_data_processed_path + "processed.csv"
 
 
 with DAG(
