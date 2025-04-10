@@ -1,0 +1,9 @@
+apache-airflow[crypto]
+dotenv
+duckdb
+pymysql
+polars
+plyvel
+paramiko
+apache-airflow-providers-ssh
+connectorx

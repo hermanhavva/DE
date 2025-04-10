@@ -1,0 +1,13 @@
+astro
+.git
+.gitignore
+.env
+airflow_settings.yaml
+logs/
+.venv
+airflow.db
+airflow.cfg
+certs
+csv_test
+csv_extracted
+README.md
