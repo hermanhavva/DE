@@ -142,3 +142,4 @@ airflow.db
 
 /assignments/05Assignment/data
 *.csv
+/assignments/05Assignment/csv_test

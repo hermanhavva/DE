@@ -110,7 +110,7 @@ with DAG(
         # group sales for each different productid, find the total income per category
         path = Path()
 
-        logger.info(f"On the previous step extracted {total_extracted_rows}")
+        logger.info(f"On the previous step extracted {total_extracted_rows} rows")
 
         try:
 
