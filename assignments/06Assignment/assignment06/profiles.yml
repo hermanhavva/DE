@@ -1,0 +1,11 @@
+assignment06:
+  target: dev
+  outputs:
+    dev:
+      type: mysql
+      server: "{{ env_var('DBT_MYSQL_HOST') }}"
+      port: "{{ env_var('DBT_MYSQL_PORT') | int }}"
+      schema: "{{ env_var('DBT_MYSQL_SCHEMA') }}"
+      username: "{{ env_var('DBT_MYSQL_USER') }}"
+      password: "{{ env_var('DBT_MYSQL_PASSWORD') }}"
+      ssl_disabled: True

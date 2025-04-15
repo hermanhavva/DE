@@ -143,3 +143,6 @@ airflow.db
 /assignments/05Assignment/data
 *.csv
 /assignments/05Assignment/csv_test
+assignments/06Assignment/assignment06/profiles.yml
+assignments/06Assignment/assignment06/README.md
+/assignments/06Assignment/assignment06/models/example
