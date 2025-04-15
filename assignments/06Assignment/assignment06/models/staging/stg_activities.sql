@@ -2,10 +2,10 @@
 
 with source as (
     select
-        cast(user_id as integer) as user_id,
-        cast(contact_id as integer) as contact_id,
-        cast(activity_type as integer) as activity_type,
-        cast(dt as timestamp) as dt  -- Convert from varchar to timestamp
+        user_id,
+        contact_id,
+        activity_type,
+        STR_TO_DATE(dt, '%Y-%m-%d %H:%i:%s') AS act_dt -- Convert from varchar to timestamp
     from {{ source('company_x', 'activities') }}
 )
 

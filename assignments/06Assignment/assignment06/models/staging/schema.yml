@@ -40,7 +40,7 @@ models:
         tests:
           - not_null
           - accepted_values:
-              values: ['1', '2']
+              values: [1, 2]
 
   - name: stg_registrations
     description: "Staging model for raw user registration data."
@@ -72,6 +72,8 @@ models:
         description: "App through which the user registered (e.g., ios, android, web)"
         tests:
           - not_null
+          - accepted_values:
+              values: ['mobile', 'ios', 'android', 'desktop']
 
       - name: country_code
         description: "ISO country code where the user registered"
@@ -106,3 +108,13 @@ models:
           - not_null
           - greater_than:
               value: 0
+
+
+sources:
+  - name: company_x
+    schema: company_x
+    tables:
+      - name: activities
+      - name: payments
+      - name: registrations
+      - name: sessions
