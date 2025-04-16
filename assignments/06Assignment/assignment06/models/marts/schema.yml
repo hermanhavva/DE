@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: mart_avg_ses_count_before_and_after_first_pay
+    description: >
+      Mart model that aggregates average session counts for users from Ukraine
+      before and after their first payment.
+
+    columns:
+      - name: before_pay_avg_session
+        description: Average number of sessions before the first payment.
+        tests:
+          - not_null
+
+      - name: after_pay_avg_session
+        description: Average number of sessions after the first payment.
+        tests:
+          - not_null

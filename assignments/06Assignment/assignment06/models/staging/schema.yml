@@ -79,6 +79,10 @@ models:
         description: "ISO country code where the user registered"
         tests:
           - not_null
+          - relationships:
+              to: ref('country_info_dict')
+              field: country_code
+
 
   - name: stg_sessions
     description: "Staging model for user raw session data."
