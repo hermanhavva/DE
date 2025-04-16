@@ -16,3 +16,20 @@ models:
         description: Average number of sessions after the first payment.
         tests:
           - not_null
+
+  - name: mart_monthly_active_users
+    description: >
+      Calculates the number of distinct active users per month
+      based on session_start_dt in the stg_sessions table.
+    columns:
+      - name: month
+        description: "First day of each month, representing the period."
+        tests:
+          - not_null
+
+      - name: mau
+        description: "Monthly Active Users - count of distinct user_ids for the given month."
+        tests:
+          - not_null
+          - expression_is_true:
+              expression: "mau >= 0"
