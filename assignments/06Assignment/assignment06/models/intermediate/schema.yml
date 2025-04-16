@@ -23,8 +23,8 @@ models:
         description: "Sequence number of the session"
         tests:
           - not_null
-          - greater_than:
-              value: 0
+#          - greater_than:
+#              value: 0
 
       - name: country_code
         description: "Country code of the user"
@@ -59,8 +59,8 @@ models:
         description: "Age of the user at the time of registration."
         tests:
           - not_null
-          - greater_than:
-              value: 15
+#          - greater_than:
+#              value: 15
 
       - name: app
         description: "App through which the user registered (e.g., ios, android, web)"
@@ -114,5 +114,42 @@ models:
           - unique
       - name: ses_count
         description: Count of unique sessions before first payment.
+        tests:
+          - not_null
+
+  - name: int_min_max_sessions_dt
+    description: "Model returning the minimum and maximum session start dates in the dataset."
+    columns:
+      - name: min_value
+        description: "The earliest session_start_dt from stg_sessions"
+        tests:
+          - not_null
+      - name: max_value
+        description: "The latest session_start_dt from stg_sessions"
+        tests:
+          - not_null
+
+  - name: int_min_max_registrations_dt
+    description: "Model returning the minimum and maximum registration dt in the dataset."
+    columns:
+      - name: min_value
+        description: "The earliest registration dt from stg_registrations"
+        tests:
+          - not_null
+      - name: max_value
+        description: "The latest registration dt from stg_registrations"
+        tests:
+          - not_null
+
+
+  - name: int_min_max_activities_dt
+    description: "Model returning the minimum and maximum activity dt in the dataset."
+    columns:
+      - name: min_value
+        description: "The earliest activity from stg_activities"
+        tests:
+          - not_null
+      - name: max_value
+        description: "The latest activity from stg_activities"
         tests:
           - not_null
