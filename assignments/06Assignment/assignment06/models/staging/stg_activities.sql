@@ -9,4 +9,7 @@ with source as (
     from {{ source('company_x', 'activities') }}
 )
 
-select * from source
+select * from source s
+where s.user_id is not null
+and s.contact_id is not null
+and s.activity_type is not null

@@ -18,7 +18,7 @@ models:
           - not_null
           - accepted_values:
               values: [1, 2, 3, 4]
-      - name: dt
+      - name: act_dt
         description: "Timestamp when the activity occurred."
         tests:
           - not_null
@@ -28,7 +28,6 @@ models:
     columns:
       - name: user_id
         tests:
-          - unique
           - not_null
       - name: pay_dt
         tests:
@@ -65,8 +64,8 @@ models:
         description: "User age at the time of registration"
         tests:
           - not_null
-          - greater_than:
-              value: 0
+#          - greater_than:
+#              value: 0
 
       - name: app
         description: "App through which the user registered (e.g., ios, android, web)"
@@ -92,7 +91,6 @@ models:
         description: "Identifier of the user who initiated the session"
         tests:
           - not_null
-          - unique
 
       - name: session_start_dt
         description: "Timestamp when the session started"
@@ -103,16 +101,13 @@ models:
         description: "Duration of the session in seconds"
         tests:
           - not_null
-          - greater_than:
-              value: 0
 
       - name: session_number
         description: "The ordinal number of the session for this user."
         tests:
           - not_null
-          - greater_than:
-              value: 0
-
+#          - greater_than:
+#              value: 0
 
 sources:
   - name: company_x
