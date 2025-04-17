@@ -146,3 +146,6 @@ airflow.db
 assignments/06Assignment/assignment06/profiles.yml
 assignments/06Assignment/assignment06/README.md
 /assignments/06Assignment/assignment06/models/example
+assignments/07Assignment/README.md
+assignments/07Assignment/tests/dags/test_dag_example.py
+assignments/07Assignment/dags/exampledag.py
