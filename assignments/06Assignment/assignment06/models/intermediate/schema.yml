@@ -1,0 +1,155 @@
+version: 2
+
+models:
+  - name: int_session_to_user_country
+    description: "Intermediate model. Adds to a sessions entry a country code of the corresponding user_id."
+    columns:
+      - name: user_id
+        description: "Unique identifier for the user"
+        tests:
+          - not_null
+
+      - name: session_start_dt
+        description: "Timestamp when the session started"
+        tests:
+          - not_null
+
+      - name: duration
+        description: "Duration of the session in seconds"
+        tests:
+          - not_null
+
+      - name: session_number
+        description: "Sequence number of the session"
+        tests:
+          - not_null
+#          - greater_than:
+#              value: 0
+
+      - name: country_code
+        description: "Country code of the user"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('country_info_dict')
+              field: country_code
+
+  - name: int_registrations_to_total_income
+    description: "Intermediate model. User registrations info with total income per user_id (sum of amount_usd)."
+    columns:
+      - name: user_id
+        description: "Unique identifier for the user."
+        tests:
+          - not_null
+          - unique
+
+      - name: reg_dt
+        description: "Registration datetime of the user."
+        tests:
+          - not_null
+
+      - name: gender
+        description: "Gender of the user (e.g., 'm', 'f')."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['m', 'f']
+
+      - name: age
+        description: "Age of the user at the time of registration."
+        tests:
+          - not_null
+#          - greater_than:
+#              value: 15
+
+      - name: app
+        description: "App through which the user registered (e.g., ios, android, web)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['mobile', 'ios', 'android', 'desktop']
+
+      - name: country_code
+        description: "Country code of the user."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('country_info_dict')
+              field: country_code
+
+  - name: int_user_to_min_pay_dt
+    description: Minimum payment datetime per user from stg_payments.
+    columns:
+      - name: user_id
+        description: User identifier.
+        tests:
+          - not_null
+          - unique
+      - name: min_pay_dt
+        description: The earliest payment datetime per user.
+        tests:
+          - not_null
+
+  - name: int_ses_per_user_after_first_pay
+    description: Number of sessions per user after their first payment.
+    columns:
+      - name: user_id
+        description: User identifier.
+        tests:
+          - not_null
+          - unique
+      - name: ses_count
+        description: Count of unique sessions after first payment.
+        tests:
+          - not_null
+
+
+  - name: int_ses_per_user_before_pay
+    description: Number of sessions per user before their first payment.
+    columns:
+      - name: user_id
+        description: User identifier.
+        tests:
+          - not_null
+          - unique
+      - name: ses_count
+        description: Count of unique sessions before first payment.
+        tests:
+          - not_null
+
+  - name: int_min_max_sessions_dt
+    description: "Model returning the minimum and maximum session start dates in the dataset."
+    columns:
+      - name: min_value
+        description: "The earliest session_start_dt from stg_sessions"
+        tests:
+          - not_null
+      - name: max_value
+        description: "The latest session_start_dt from stg_sessions"
+        tests:
+          - not_null
+
+  - name: int_min_max_registrations_dt
+    description: "Model returning the minimum and maximum registration dt in the dataset."
+    columns:
+      - name: min_value
+        description: "The earliest registration dt from stg_registrations"
+        tests:
+          - not_null
+      - name: max_value
+        description: "The latest registration dt from stg_registrations"
+        tests:
+          - not_null
+
+
+  - name: int_min_max_activities_dt
+    description: "Model returning the minimum and maximum activity dt in the dataset."
+    columns:
+      - name: min_value
+        description: "The earliest activity from stg_activities"
+        tests:
+          - not_null
+      - name: max_value
+        description: "The latest activity from stg_activities"
+        tests:
+          - not_null
