@@ -1,0 +1,119 @@
+version: 2
+
+models:
+  - name: stg_activities
+    description: "Stage model for raw activities."
+    columns:
+      - name: user_id
+        description: "ID of the user performing the activity."
+        tests:
+          - not_null
+      - name: contact_id
+        description: "ID of the contact associated with the activity."
+        tests:
+          - not_null
+      - name: activity_type
+        description: "Type of the activity performed."
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1, 2, 3, 4]
+      - name: act_dt
+        description: "Timestamp when the activity occurred."
+        tests:
+          - not_null
+
+  - name: stg_payments
+    description: "Stage model for raw payments"
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+      - name: pay_dt
+        tests:
+          - not_null
+      - name: amount_usd
+        tests:
+          - not_null
+      - name: feature_type_id
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1, 2]
+
+  - name: stg_registrations
+    description: "Staging model for raw user registration data."
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+
+      - name: reg_dt
+        tests:
+          - not_null
+
+      - name: gender
+        description: "User gender — expected values: 'm' or 'f'"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [ 'm', 'f' ]
+
+      - name: age
+        description: "User age at the time of registration"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: " >= 18"
+
+      - name: app
+        description: "App through which the user registered (e.g., ios, android, web)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['mobile', 'ios', 'android', 'desktop']
+
+      - name: country_code
+        description: "ISO country code where the user registered"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('country_info_dict')
+              field: country_code
+
+
+  - name: stg_sessions
+    description: "Staging model for user raw session data."
+
+    columns:
+      - name: user_id
+        description: "Identifier of the user who initiated the session"
+        tests:
+          - not_null
+
+      - name: session_start_dt
+        description: "Timestamp when the session started"
+        tests:
+          - not_null
+
+      - name: duration
+        description: "Duration of the session in seconds"
+        tests:
+          - not_null
+
+      - name: session_number
+        description: "The ordinal number of the session for this user."
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "> 0"
+
+sources:
+  - name: company_x
+    schema: company_x
+    tables:
+      - name: activities
+      - name: payments
+      - name: registrations
+      - name: sessions
