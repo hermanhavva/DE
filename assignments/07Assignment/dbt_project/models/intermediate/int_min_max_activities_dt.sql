@@ -1,0 +1,1 @@
+{{ get_min_max_date('stg_activities', 'act_dt') }}

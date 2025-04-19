@@ -146,3 +146,24 @@ airflow.db
 assignments/06Assignment/assignment06/profiles.yml
 assignments/06Assignment/assignment06/README.md
 /assignments/06Assignment/assignment06/models/example
+assignments/07Assignment/README.md
+assignments/07Assignment/tests/dags/test_dag_example.py
+assignments/07Assignment/dags/exampledag.py
+
+# Created by https://www.toptal.com/developers/gitignore/api/dbt,dbeaver
+# Edit at https://www.toptal.com/developers/gitignore?templates=dbt,dbeaver
+
+### DBeaver ###
+# ide config file
+.dbeaver-data-sources*.xml
+
+### dbt ###
+target/
+dbt_modules/
+dbt_packages/
+logs/
+
+# End of https://www.toptal.com/developers/gitignore/api/dbt,dbeaver
+
+data/
+*.duckdb

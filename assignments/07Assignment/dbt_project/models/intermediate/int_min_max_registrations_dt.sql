@@ -1,0 +1,1 @@
+{{ get_min_max_date('stg_sessions', 'session_start_dt') }}
